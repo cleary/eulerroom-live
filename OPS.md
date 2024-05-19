@@ -17,7 +17,7 @@ Intended for TOPLAP admins. Details on:
 
 ### Linode host
 
-* 172.105.92.147 (this may change)
+* `85.90.244.99`
 * adding local user (for a new admin)
     * create user with home dir and .ssh/authorized_keys
     * add to groups: docker,eulerroom
