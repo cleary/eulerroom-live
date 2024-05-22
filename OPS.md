@@ -8,6 +8,12 @@ Intended for TOPLAP admins. Details on:
 * operational activity used during an event to monitor CPU and stream health
 * sending custom email
 
+Related Documentation:
+
+* [Event setup with Muxy Admin](https://github.com/EulerRoom/eulerroom-live-web/blob/main/eventSetup.md) This details how to create a streaming event in Muxy Admin, manage slots, and set the webpage for slot registration.
+* [OBS Settings Guide](https://github.com/EulerRoom/eulerroom-live-web/blob/main/obsSettings.md) Reference for OBS software setup for streaming.
+
+
 ## Pre-requisites
 
 * ssh access to Linode.com host - local user
@@ -41,9 +47,18 @@ Data for the services is stored in the `data` directory.
 * `main-owncast/`: Main Owncast data directory
 * `test-owncast/`: Test Owncast data directory
 
+### Docker services:
+
+These are the running services. Use these names in the commands below for `$SERVICE_NAME`.
+* nginx-rtmp
+* main-owncast
+* test-owncast
+* muxy
+
 ### Check if services are running
 
 You can check if the services are running with the following command:
+*Note:* This needs to be run from `/opt/eulerroom-live`
 
 ```bash
 docker compose ps
