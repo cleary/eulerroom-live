@@ -139,13 +139,19 @@ During live streaming, you can monitor the stream status in Owncast admin. Most 
 ## Linode host operations
 
 ### Resize
-Linode supports node resizing. This is a great way to keep cost down and still be able to scale up for a big event.
+Linode supports node resizing. This is a great way to keep cost down and still be able to scale up for a big event. Linode offers a warm or cold resize option. Warm resizing minimizes down time but does include a power off / reboot cycle. See the [Linode - Change Plans/resize Guide](https://www.linode.com/docs/products/compute/compute-instances/guides/resize/).
 
 * Linode 4 GB / 2 cores - adequate for testing without high load streams
 * Linode 8 GB / 4 cores - adequate for most streaming events
 * Linode 16 GB / 6 cores  lots of headroom. For TOPLAP20 we used this and the 1 min load average did not go above 4 (out of 6) and only sometimes went above 3.
 
-When select a new size, be sure to **uncheck the option to Auto Resize Disk.**
+**Resize steps**
+
+* Log in to the Linode Cloud Manager (UI)
+* select the linode host (toplap-hometown)
+* from the 3 dot menu, select Resize
+* **uncheck the option to Auto Resize Disk (important)**
+* when downgrading - review the storage space first to make sure the disk space used doesn't exceed the new smaller disk size. The big factor will be any recordings files from live streaming. These are in: `/opt/eulerroom/data/recordings`
 
 ### CPU utilization
 CPU is the most important compute resource for live video streaming. If there isn't enough CPU capacity, the outgoing stream can become choppy or cut out completely due to buffering constraints. The Owncast admin site monitors CPU at a high level. For a more precise view of CPU utilization, use the linux `top` command.
