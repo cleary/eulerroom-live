@@ -156,9 +156,12 @@ During live streaming, you can monitor the stream status in Owncast admin. Most 
 ### Resize
 Linode supports node resizing. This is a great way to keep cost down and still be able to scale up for a big event. Linode offers a warm or cold resize option. Warm resizing minimizes down time but does include a power off / reboot cycle. See the [Linode - Change Plans/resize Guide](https://www.linode.com/docs/products/compute/compute-instances/guides/resize/).
 
+* Linode 2 GB / 1 core: ok for Mastodon, can do minimal testing 
 * Linode 4 GB / 2 cores - adequate for testing without high load streams
-* Linode 8 GB / 4 cores - adequate for most streaming events
-* Linode 16 GB / 6 cores  lots of headroom. For TOPLAP20 we used this and the 1 min load average did not go above 4 (out of 6) and only sometimes went above 3.
+* Linode 8 GB / 4 cores - adequate for some streaming events
+* **Linode 16 GB / 6 cores** Recommended. lots of headroom. Will handle all streaming events.
+
+*Note*: Running the streaming stack together with Mastodon means occasional extra CPU load. For this scenario, the **Linode 16 GB** is recommended. When a user sends a heavy load stream in, it can max out the 8GB / 4 core server and result in buffering problems with frequent stream interruptions. If we could count on everyone following the published guidelines, 8 GB / 4 cores would be enough. 
 
 **Resize steps**
 
