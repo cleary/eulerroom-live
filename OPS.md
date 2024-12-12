@@ -123,7 +123,14 @@ git clone https://github.com/owncast/owncast`
 cd owncast
 git checkout v0.1.3
 ```
+
 Then edit `web/components/video/OwncastPlayer/OwncastPlayer.tsx` to edit the `autoplay` option to `true`.
+
+You'll also need to edit the `Dockerfile`, to set the user and group ids of the eulerroom user. You can find these ids with the `id eulerroom` command. For example if the user and group ids are both `1005`, you'd change the RUN `addgroup line` to:
+
+```
+RUN addgroup -g 1005 -S owncast && adduser -u 1005 -S owncast -G owncast
+```
 
 Next we build and bundle the web stuff, and rebundle the owncast container, tagged eulerroom:
 ```bash
