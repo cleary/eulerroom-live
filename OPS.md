@@ -107,6 +107,37 @@ docker compose up -d --force-recreate --build nginx-rtmp main-owncast
 docker compose up -d --force-recreate --build #all services
 ```
 
+### Change the website
+
+Normally, owncast doesn't autoplay streams. This is bad news for us as it would mean that stream watchers would have to press the play button for every performance slot. 
+
+To fix this and/or make cosmetic changes to the front end, we have to edit the website.
+
+First, clone the owncast repo, and switch to the version we're running:
+
+```bash
+cd ~
+mkdir src
+cd src
+git clone https://github.com/owncast/owncast`
+cd owncast
+git checkout v0.1.3
+```
+Then edit `web/components/video/OwncastPlayer/OwncastPlayer.tsx` to edit the `autoplay` option to `true`.
+
+Next we build and bundle the web stuff, and rebundle the owncast container, tagged eulerroom:
+```bash
+./build/web/bundleWeb.sh
+docker build -t owncast:eulerroom .
+```
+Now edit our `/opt/eulerroom-live/owncast/Dockerfile` to change the first line to `FROM owncast:eulerroom`, and recreate the main and test containers with:
+
+```bash
+cd /opt/eulerroom-live
+docker compose up -d --force-recreate --build main-owncast
+docker compose up -d --force-recreate --build test-owncast
+```
+
 ### Nginx config
 
 The Nginx configuration for eulerroom-live is at
