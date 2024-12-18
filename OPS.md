@@ -29,6 +29,12 @@ Related Documentation:
     * add to groups: docker,eulerroom
     * provide sudo access
 
+```
+sudo adduser <username> --ingroup sudo --ingroup docker --ingroup eulerroom
+```
+
+> Note: adduser (and addgroup) are friendlier front ends to the  low  level tools like useradd, groupadd and usermod programs, by default choosing Debian policy conformant UID and GID values, creating a home directory with skeletal configuration, running a custom script, and other features.
+
 ## Services
 
 ### location: eulerroom-live
