@@ -12,6 +12,7 @@ Related Documentation:
 
 * [Event setup with Muxy Admin](https://github.com/EulerRoom/eulerroom-live-web/blob/main/eventSetup.md) This details how to create a streaming event in Muxy Admin, manage slots, and set the webpage for slot registration.
 * [OBS Settings Guide](https://github.com/EulerRoom/eulerroom-live-web/blob/main/obsSettings.md) Reference for OBS software setup for streaming.
+* [Streaming Event Admin Support Guide](support.md) Companion guide. Covers info on providing user support and systems support during an event. 
 
 
 ## Pre-requisites
