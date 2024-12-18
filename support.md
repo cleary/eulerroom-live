@@ -65,9 +65,9 @@ This is **rare** but it has happened. One scenario is that the Owncast service h
 
 ### Stream Performance (Advanced)
 
-*Note:* Most admins aren't expected to engage, unless you are interested. It requires access into the Owncast admin UI. 
+*Note:* Most admins aren't expected to engage at this level. It requires access into the Owncast admin UI. 
 
-The most common problem is that the audio of a stream is choppy. This can happen when stream processing can't keep up with the amount of incoming stream data. Typically this is due to a bad stream, using a high screen resolution, high bitrate, high fps rate, or combination of all these. (Some users don't follow the instructions, or don't allow time to figure it all out.)
+The most common problem is that the audio of a stream is choppy. This can happen when stream processing can't keep up with the amount of incoming stream data. Typically this is due to a bad stream, using a high screen resolution, high bitrate, high fps rate, or combination. (Some users don't follow the streaming guides, or don't allow time to figure it all out.)
 
 Other problems:
 - user has an inadequate internet connection - either low bandwidth  or an unreliable connection 
@@ -76,8 +76,11 @@ Other problems:
 Challenges: 
 
 - Nothing can be done during a bad stream. 
-- Nothing can be done with user side problems. 
-- The Owncast settings have been adjusted as much as possible to accommodate bad streams - so there is not much more to be done. 
+- Nothing can be done with user side problems, except to inform the user for future reference. 
+- The Owncast settings have been adjusted as much as possible to accommodate bad streams - so there is not much more to be done.
+
+**Adjusting Owncast stream output**
+We provision 2 output streams - with a low bandwidth option for those watching/participating via lower bandwidth. The Owncast manual recommends operating only 1 stream output to conserve resources and then scaling up. So if stream performance is consistently choppy, one option is to delete the `Low bandwith` ouput stream. However, there is no consensus on using this option, and no clear indication that it will even help the choppy audio problem. 
 
 **Worst case:**   
 If audio problems persist across multiple streams, the quality of the event itself can become compromised. No one wants to experience streaming live coding where the audio is consistently choppy. The best resort is to resize the server and hope that throwing more CPU resources will help. See: [Resize](OPS.md#linode-host-operations) in the OPS / Maintenance guide. 
